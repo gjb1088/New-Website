@@ -1,11 +1,11 @@
 import ServicesSection from "@/components/ServicesSection";
 import CTASection from "@/components/CTASection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ServicesSection from "@/components/ServicesSection";
-import CTASection from "@/components/CTASection";
-import { services } from "@/data/services";
 import { ProcessSection } from "@/components/ProcessSection";
+
+import { services } from "@/data/services";
 import { projects } from "@/data/projects";
+
 import { Cpu, Settings, Server, TrendingUp } from "lucide-react";
 
 export default function Home() {
