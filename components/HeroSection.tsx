@@ -18,7 +18,6 @@ const fadeUp = (delay = 0) => ({
 });
 
 const TYPEWRITER_FULL = "THE BOATS.";
-const TYPEWRITER_START_MS = 850;
 const TYPEWRITER_SPEED_MS = 80;
 
 export default function HeroSection() {
@@ -26,6 +25,10 @@ export default function HeroSection() {
   const [cursorVisible, setCursorVisible] = useState(false);
 
   useEffect(() => {
+    // First visit: boot screen runs ~3.25s, so wait for it to finish
+    const isFirstVisit = !sessionStorage.getItem("boot_done");
+    const delay = isFirstVisit ? 3700 : 850;
+
     const startTimer = setTimeout(() => {
       setCursorVisible(true);
       let i = 0;
@@ -38,7 +41,7 @@ export default function HeroSection() {
         }
       }, TYPEWRITER_SPEED_MS);
       return () => clearInterval(ticker);
-    }, TYPEWRITER_START_MS);
+    }, delay);
     return () => clearTimeout(startTimer);
   }, []);
 
