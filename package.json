@@ -6,6 +6,7 @@
     "dev": "next dev",
     "fresh": "taskkill /F /IM node.exe & timeout /t 2 /nobreak & next dev",
     "build": "next build",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,6 +20,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@types/node": "^20.12.0",
     "@types/react": "^18.3.0",
     "autoprefixer": "^10.4.15",
