@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 export default function ProjectsSection({ projects }: { projects: Project[] }) {
@@ -104,13 +104,6 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
                   </div>
                 )}
 
-                <a
-                  href={`/projects/${p.slug}`}
-                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-fuchsia-400/80 hover:text-fuchsia-300 group-hover:gap-3 transition-all duration-200"
-                >
-                  VIEW DETAILS
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
               </div>
             </motion.article>
           ))}
