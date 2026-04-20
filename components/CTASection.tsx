@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send, Phone, Mail, MapPin, CheckCircle2, CalendarDays } from "lucide-react";
+import { Send, Mail, MapPin, CheckCircle2, CalendarDays } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 
@@ -102,8 +102,7 @@ export default function CTASection() {
 
             <div className="space-y-4">
               {[
-                { icon: <Mail className="h-4 w-4" />, label: "contact@burn.it" },
-                { icon: <Phone className="h-4 w-4" />, label: "+1 (555) 000-BURN" },
+                { icon: <Mail className="h-4 w-4" />, label: "questions@burnthe.network" },
                 { icon: <MapPin className="h-4 w-4" />, label: "Serving clients nationwide" },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-3 text-sm text-cyan-100/60">
