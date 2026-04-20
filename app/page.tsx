@@ -1,34 +1,47 @@
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import CTASection from "@/components/CTASection";
 import ProjectsSection from "@/components/ProjectsSection";
+// import TestimonialsSection from "@/components/TestimonialsSection"; // re-enable when testimonials are ready
 import { ProcessSection } from "@/components/ProcessSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
 
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 
-import { Cpu, Settings, Server, TrendingUp } from "lucide-react";
-
 export default function Home() {
-  const steps = [
-    { title: "Discovery", blurb: "Deep-dive on goals, risks, constraints.", icon: <Cpu className="h-5 w-5" /> },
-    { title: "Strategy", blurb: "Architecture plan, baselines, success metrics.", icon: <Settings className="h-5 w-5" /> },
-    { title: "Implementation", blurb: "IaC rollout with change control & playbooks.", icon: <Server className="h-5 w-5" /> },
-    { title: "Optimization", blurb: "Telemetry + AI insights for perf & cost.", icon: <TrendingUp className="h-5 w-5" /> },
-  ];
-
   return (
-    <main className="relative overflow-x-clip bg-gradient-to-b from-[#0b0615] via-[#140a2a] to-[#0b0615] text-cyan-50">
-      {/* Services */}
-      <ServicesSection items={services} />
+    <div className="relative min-h-screen bg-[#080d1c] text-cyan-50 overflow-x-hidden">
+      <Navbar />
 
-      {/* Projects */}
-      <ProjectsSection projects={projects} />
+      <main>
+        <HeroSection />
 
-      {/* Process */}
-      <ProcessSection steps={steps} />
+        {/* Divider */}
+        <div className="divider-glow mx-auto max-w-4xl" />
 
-      {/* CTA */}
-      <CTASection />
-    </main>
+        <ServicesSection items={services} />
+
+        {/* Divider */}
+        <div className="divider-glow mx-auto max-w-4xl" />
+
+        <ProjectsSection projects={projects} />
+
+        {/* <TestimonialsSection /> */}
+
+        {/* Divider */}
+        <div className="divider-glow mx-auto max-w-4xl" />
+
+        <ProcessSection />
+
+        {/* Divider */}
+        <div className="divider-glow mx-auto max-w-4xl" />
+
+        <CTASection />
+      </main>
+
+      <Footer />
+    </div>
   );
 }

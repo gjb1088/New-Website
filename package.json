@@ -4,25 +4,28 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "fresh": "taskkill /F /IM node.exe & timeout /t 2 /nobreak & next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react-datepicker": "^6.2.0",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.468.0",
     "next": "14.0.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "framer-motion": "^11.0.0",
-    "lucide-react": "^0.468.0"
+    "react-datepicker": "^9.1.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@types/react": "^18.3.0",
     "autoprefixer": "^10.4.15",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2",
-    "@types/react": "^18.3.0",
-    "@types/node": "^20.12.0"
+    "typescript": "^5.2.2"
   }
 }

@@ -1,7 +1,172 @@
+@import 'react-datepicker/dist/react-datepicker.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Courier New', monospace;
+@layer base {
+  :root {
+    --bg-primary: #080d1c;
+    --bg-secondary: #0c1228;
+    --cyan: #22d3ee;
+    --fuchsia: #e879f9;
+    --purple: #a855f7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: #e0f7ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080d1c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.25);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.45);
+  }
+}
+
+@layer utilities {
+  /* Animated grid background */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-scroll 30s linear infinite;
+  }
+
+  @keyframes grid-scroll {
+    0%   { background-position: 0 0; }
+    100% { background-position: 0 60px; }
+  }
+
+  /* Scanlines */
+  .scanlines {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.04) 2px,
+      rgba(0, 0, 0, 0.04) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Gradient text helpers */
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-fuchsia {
+    background: linear-gradient(135deg, #e879f9 0%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card glow on hover */
+  .card-hover {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  }
+  .card-hover:hover {
+    box-shadow: 0 0 40px -10px rgba(34, 211, 238, 0.4);
+    border-color: rgba(34, 211, 238, 0.5);
+    transform: translateY(-4px);
+  }
+
+  /* Glow button effect */
+  .btn-glow {
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.5);
+  }
+
+  /* react-datepicker dark theme overrides */
+  .react-datepicker {
+    background-color: #0c1228 !important;
+    border: 1px solid rgba(34,211,238,0.2) !important;
+    font-family: inherit !important;
+    border-radius: 0.75rem !important;
+  }
+  .react-datepicker__header {
+    background-color: #080d1c !important;
+    border-bottom: 1px solid rgba(34,211,238,0.15) !important;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+  }
+  .react-datepicker__current-month,
+  .react-datepicker__day-name,
+  .react-datepicker-time__header {
+    color: rgba(34,211,238,0.8) !important;
+  }
+  .react-datepicker__day {
+    color: rgba(224,247,255,0.75) !important;
+    border-radius: 0.4rem !important;
+  }
+  .react-datepicker__day:hover {
+    background-color: rgba(34,211,238,0.15) !important;
+    color: #fff !important;
+  }
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    background-color: rgba(34,211,238,0.25) !important;
+    color: #22d3ee !important;
+  }
+  .react-datepicker__day--disabled {
+    color: rgba(224,247,255,0.2) !important;
+  }
+  .react-datepicker__time-container {
+    border-left: 1px solid rgba(34,211,238,0.15) !important;
+  }
+  .react-datepicker__time-box,
+  .react-datepicker__time {
+    background-color: #0c1228 !important;
+  }
+  .react-datepicker__time-list-item {
+    color: rgba(224,247,255,0.65) !important;
+  }
+  .react-datepicker__time-list-item:hover {
+    background-color: rgba(34,211,238,0.15) !important;
+    color: #fff !important;
+  }
+  .react-datepicker__time-list-item--selected {
+    background-color: rgba(34,211,238,0.25) !important;
+    color: #22d3ee !important;
+  }
+  .react-datepicker__navigation-icon::before {
+    border-color: rgba(34,211,238,0.5) !important;
+  }
+  .react-datepicker__input-container input {
+    background: transparent;
+    color: white;
+  }
+
+  /* Section divider gradient line */
+  .divider-glow {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(34, 211, 238, 0.4) 30%,
+      rgba(168, 85, 247, 0.4) 70%,
+      transparent 100%
+    );
+  }
 }
