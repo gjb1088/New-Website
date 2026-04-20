@@ -8,7 +8,7 @@ const SEQ = [
 ];
 
 export default function KonamiEgg() {
-  const [buffer, setBuffer] = useState<string[]>([]);
+  const [_buffer, setBuffer] = useState<string[]>([]);
   const [active, setActive] = useState(false);
 
   useEffect(() => {

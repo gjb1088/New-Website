@@ -25,24 +25,31 @@ export default function HeroSection() {
   const [cursorVisible, setCursorVisible] = useState(false);
 
   useEffect(() => {
-    // First visit: boot screen runs ~3.25s, so wait for it to finish
-    const isFirstVisit = !sessionStorage.getItem("boot_done");
+    let isFirstVisit = true;
+    try { isFirstVisit = !sessionStorage.getItem("boot_done"); } catch {}
     const delay = isFirstVisit ? 3700 : 850;
+
+    let ticker: ReturnType<typeof setInterval> | null = null;
+    let cursorTimer: ReturnType<typeof setTimeout> | null = null;
 
     const startTimer = setTimeout(() => {
       setCursorVisible(true);
       let i = 0;
-      const ticker = setInterval(() => {
+      ticker = setInterval(() => {
         i++;
         setTyped(TYPEWRITER_FULL.slice(0, i));
         if (i >= TYPEWRITER_FULL.length) {
-          clearInterval(ticker);
-          setTimeout(() => setCursorVisible(false), 2200);
+          if (ticker) clearInterval(ticker);
+          cursorTimer = setTimeout(() => setCursorVisible(false), 2200);
         }
       }, TYPEWRITER_SPEED_MS);
-      return () => clearInterval(ticker);
     }, delay);
-    return () => clearTimeout(startTimer);
+
+    return () => {
+      clearTimeout(startTimer);
+      if (ticker) clearInterval(ticker);
+      if (cursorTimer) clearTimeout(cursorTimer);
+    };
   }, []);
 
   return (

@@ -17,7 +17,9 @@ export default function BootScreen() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("boot_done")) {
+    let bootDone = false;
+    try { bootDone = !!sessionStorage.getItem("boot_done"); } catch {}
+    if (bootDone) {
       setShow(false);
       return;
     }
@@ -30,7 +32,7 @@ export default function BootScreen() {
           setFading(true);
           setTimeout(() => {
             setShow(false);
-            sessionStorage.setItem("boot_done", "1");
+            try { sessionStorage.setItem("boot_done", "1"); } catch {}
           }, 700);
         }, 600);
         return;
