@@ -88,8 +88,7 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm text-cyan-100/50">
-              <li>contact@burn.it</li>
-              <li>+1 (555) 000-BURN</li>
+              <li>questions@burnthe.network</li>
               <li>Serving clients nationwide</li>
             </ul>
             <div className="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-400/25 bg-emerald-400/8 px-3 py-2">
