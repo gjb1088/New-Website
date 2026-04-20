@@ -37,8 +37,9 @@ export default function BootScreen() {
         }, 600);
         return;
       }
-      setLines((prev) => [...prev, LINES[idx]]);
+      const line = LINES[idx];
       idx++;
+      setLines((prev) => [...prev, line]);
       setTimeout(addLine, 340);
     }
     setTimeout(addLine, 250);
