@@ -2,6 +2,9 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import ModalProvider from '@/components/ModalProvider';
+import BootScreen from '@/components/BootScreen';
+import GrainOverlay from '@/components/GrainOverlay';
+import KonamiEgg from '@/components/KonamiEgg';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,6 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans">
+        <BootScreen />
+        <GrainOverlay />
+        <KonamiEgg />
         <div className="scanlines-global" aria-hidden="true" />
         <ModalProvider>{children}</ModalProvider>
       </body>

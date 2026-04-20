@@ -101,6 +101,10 @@ export default function ServicesSection({ items }: { items: Service[] }) {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </a>
 
+                <p className="mt-2.5 font-terminal text-[9px] tracking-wide text-cyan-400/0 group-hover:text-cyan-400/45 transition-colors duration-400">
+                  &gt; {s.slug.replace(/-/g, "_")}.load // ready
+                </p>
+
                 {/* Bottom gradient line */}
                 <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-gradient-to-r from-cyan-400/50 to-fuchsia-500/50 transition-all duration-500" />
               </motion.div>
