@@ -47,7 +47,7 @@ export default function ServicesSection({ items }: { items: Service[] }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.25em] text-cyan-400 uppercase mb-3">
+          <p className="font-terminal text-xs font-semibold tracking-[0.2em] text-cyan-400 uppercase mb-3">
             What We Do
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-white">

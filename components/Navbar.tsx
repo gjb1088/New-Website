@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-fuchsia-600 shadow-[0_0_20px_rgba(34,211,238,0.4)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] transition-shadow duration-300">
             <Flame className="h-5 w-5 text-white" />
           </div>
-          <span className="font-display text-xl font-bold tracking-wider text-white">
+          <span className="font-display text-xl font-bold tracking-wider text-white glitch-logo">
             BURN<span className="text-cyan-400">.</span>IT
           </span>
         </a>

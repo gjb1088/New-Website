@@ -54,16 +54,67 @@
     100% { background-position: 0 60px; }
   }
 
-  /* Scanlines */
+  /* Scanlines — hero section */
   .scanlines {
     background: repeating-linear-gradient(
       0deg,
       transparent,
       transparent 2px,
-      rgba(0, 0, 0, 0.04) 2px,
-      rgba(0, 0, 0, 0.04) 4px
+      rgba(0, 0, 0, 0.07) 2px,
+      rgba(0, 0, 0, 0.07) 4px
     );
     pointer-events: none;
+  }
+
+  /* Global fixed scanline overlay */
+  .scanlines-global {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.025) 3px,
+      rgba(0, 0, 0, 0.025) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  /* Terminal cursor */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .terminal-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.8em;
+    background: #22d3ee;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    border-radius: 1px;
+    animation: blink 0.9s step-end infinite;
+  }
+
+  /* Glitch animation */
+  @keyframes glitch {
+    0%, 82%, 100% {
+      transform: translate(0, 0);
+      text-shadow: none;
+    }
+    83% { transform: translate(-3px, 0); text-shadow: 3px 0 #e879f9, -3px 0 #22d3ee; }
+    84% { transform: translate(3px, 0); text-shadow: -3px 0 #e879f9, 3px 0 #22d3ee; }
+    85% { transform: translate(-2px, 0); text-shadow: 2px 0 #e879f9; }
+    86% { transform: translate(2px, 0); text-shadow: -2px 0 #22d3ee; }
+    87% { transform: translate(-1px, 0); text-shadow: 1px 0 #22d3ee; }
+    88% { transform: translate(0); text-shadow: none; }
+  }
+
+  .glitch-logo {
+    display: inline-block;
+    animation: glitch 7s linear infinite;
   }
 
   /* Gradient text helpers */

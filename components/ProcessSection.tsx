@@ -54,7 +54,7 @@ export function ProcessSection({ steps = defaultSteps }: { steps?: Step[] }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.25em] text-emerald-400 uppercase mb-3">
+          <p className="font-terminal text-xs font-semibold tracking-[0.2em] text-emerald-400 uppercase mb-3">
             How We Work
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-white">

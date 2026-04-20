@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const stats = [
   { value: "99.99%", label: "Uptime SLA" },
@@ -16,7 +17,31 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+const TYPEWRITER_FULL = "THE BOATS.";
+const TYPEWRITER_START_MS = 850;
+const TYPEWRITER_SPEED_MS = 80;
+
 export default function HeroSection() {
+  const [typed, setTyped] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(false);
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => {
+      setCursorVisible(true);
+      let i = 0;
+      const ticker = setInterval(() => {
+        i++;
+        setTyped(TYPEWRITER_FULL.slice(0, i));
+        if (i >= TYPEWRITER_FULL.length) {
+          clearInterval(ticker);
+          setTimeout(() => setCursorVisible(false), 2200);
+        }
+      }, TYPEWRITER_SPEED_MS);
+      return () => clearInterval(ticker);
+    }, TYPEWRITER_START_MS);
+    return () => clearTimeout(startTimer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-24">
       {/* Animated grid */}
@@ -42,7 +67,7 @@ export default function HeroSection() {
         {/* Badge */}
         <motion.div {...fadeUp(0)} className="inline-flex items-center gap-2.5 rounded-full border border-cyan-400/30 bg-cyan-400/8 px-4 py-1.5 mb-8 backdrop-blur-sm">
           <Zap className="h-3.5 w-3.5 text-cyan-400 flex-shrink-0" />
-          <span className="text-xs font-semibold tracking-[0.15em] text-cyan-300 uppercase">
+          <span className="font-terminal text-xs font-semibold tracking-[0.12em] text-cyan-300 uppercase">
             Enterprise IT Consulting & Managed Services
           </span>
         </motion.div>
@@ -52,7 +77,10 @@ export default function HeroSection() {
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
             <span className="text-white">BURN</span>
             <br />
-            <span className="text-gradient-cyan">THE BOATS.</span>
+            <span className="text-gradient-cyan">
+              {typed}
+              {cursorVisible && <span className="terminal-cursor" />}
+            </span>
           </h1>
         </motion.div>
 
@@ -113,7 +141,7 @@ export default function HeroSection() {
         transition={{ duration: 1, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-cyan-400/40"
       >
-        <span className="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+        <span className="font-terminal text-[10px] tracking-wide">&gt; scroll_</span>
         <ChevronDown className="h-4 w-4 animate-bounce" />
       </motion.div>
     </section>

@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
         display: ["var(--font-space)", "Space Grotesk", "system-ui", "sans-serif"],
+        terminal: ["var(--font-mono)", "JetBrains Mono", "Consolas", "monospace"],
       },
       colors: {
         brand: {
