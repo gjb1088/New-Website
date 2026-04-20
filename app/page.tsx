@@ -1,13 +1,14 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-// import ProjectsSection from "@/components/ProjectsSection"; // re-enable when case studies are ready
+import ProjectsSection from "@/components/ProjectsSection";
 // import TestimonialsSection from "@/components/TestimonialsSection"; // re-enable when testimonials are ready
 import { ProcessSection } from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 import { services } from "@/data/services";
+import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
@@ -25,7 +26,10 @@ export default function Home() {
         {/* Divider */}
         <div className="divider-glow mx-auto max-w-4xl" />
 
-        {/* <ProjectsSection projects={projects} /> */}
+        <ProjectsSection projects={projects} />
+
+        {/* Divider */}
+        <div className="divider-glow mx-auto max-w-4xl" />
         {/* <TestimonialsSection /> */}
 
         <ProcessSection />
