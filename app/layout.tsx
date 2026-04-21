@@ -55,6 +55,10 @@ export const metadata: Metadata = {
   creator: 'Burn.IT',
   publisher: 'Burn.IT',
   category: 'technology',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   robots: {
     index: true,
     follow: true,
