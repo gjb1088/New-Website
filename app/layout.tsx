@@ -26,16 +26,91 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+const siteUrl = 'https://burnthe.network';
+
 export const metadata: Metadata = {
-  title: 'Burn.IT – Enterprise IT Consulting & Managed Services',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Burn.IT – Enterprise IT Consulting & Managed Services',
+    template: '%s | Burn.IT',
+  },
   description:
     'Enterprise-grade network engineering, cybersecurity, cloud, and AI-driven infrastructure management. 99.99% uptime SLA. Built for businesses that refuse to accept downtime.',
-  keywords: ['IT consulting', 'managed services', 'cybersecurity', 'network engineering', 'cloud migration', 'MSP'],
+  keywords: [
+    'IT consulting',
+    'managed services',
+    'cybersecurity',
+    'network engineering',
+    'cloud migration',
+    'MSP',
+    'enterprise IT',
+    'AI operations',
+    'infrastructure management',
+    'zero trust',
+    'SharePoint',
+    'Microsoft Intune',
+    'Autopilot',
+  ],
+  authors: [{ name: 'Burn.IT', url: siteUrl }],
+  creator: 'Burn.IT',
+  publisher: 'Burn.IT',
+  category: 'technology',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteUrl,
+    siteName: 'Burn.IT',
+    title: 'Burn.IT – Enterprise IT Consulting & Managed Services',
+    description:
+      'Enterprise-grade network engineering, cybersecurity, cloud, and AI-driven infrastructure management. 99.99% uptime SLA.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Burn.IT – Enterprise IT Consulting & Managed Services',
+    description:
+      'Enterprise-grade network engineering, cybersecurity, cloud, and AI-driven infrastructure management. 99.99% uptime SLA.',
+  },
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Burn.IT',
+  url: siteUrl,
+  description:
+    'Enterprise IT Consulting & Managed Services — network engineering, cybersecurity, cloud migration, and AI-driven infrastructure management.',
+  email: 'questions@burnthe.network',
+  areaServed: 'US',
+  serviceType: [
+    'IT Consulting',
+    'Managed Services',
+    'Network Engineering',
+    'Cybersecurity',
+    'Cloud Migration',
+    'AI Operations',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body className="font-sans">
         <BootScreen />
         <GrainOverlay />

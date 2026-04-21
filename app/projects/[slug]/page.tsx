@@ -19,10 +19,22 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const project = getProject(params.slug);
-  if (!project) return { title: "Project – Not found" };
+  if (!project) return { title: 'Project – Not found' };
   return {
     title: `${project.title} – Burn.IT Case Study`,
     description: project.summary,
+    openGraph: {
+      title: `${project.title} – Burn.IT Case Study`,
+      description: project.summary,
+      url: `https://burnthe.network/projects/${project.slug}`,
+      type: 'article',
+      siteName: 'Burn.IT',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} – Burn.IT Case Study`,
+      description: project.summary,
+    },
   };
 }
 
